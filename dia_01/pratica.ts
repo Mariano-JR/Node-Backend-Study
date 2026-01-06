@@ -92,29 +92,20 @@ server.listen(3000, () => {
 
     Não precisa estar perfeito.
 */
+import { readFile } from 'fs/promises';
 import http from 'http';
-import fs from 'fs';
-
-const data = fs.readFileSync('./users.json', 'utf8')
-const users = JSON.parse(data)
-
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(users))
-})
 // Melhoria recomendada do GPT
 // Ajuste profissional (muito importante)
 // readFileSync bloqueia o Event Loop.
 // Para APIs, use versão assíncrona:
-// import { readFile } from 'fs/promises';
 
-// const server = http.createServer(async (req, res) => {
-//     const data = await readFile('./users.json', 'utf8');
-//     const users = JSON.parse(data);
+const server = http.createServer(async (req, res) => {
+    const data = await readFile('./users.json', 'utf8');
+    const users = JSON.parse(data);
 
-//     res.writeHead(200, { 'Content-Type': 'application/json' });
-//     res.end(JSON.stringify(users));
-// });
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(users));
+});
 
 
 server.listen(3000, () => {
