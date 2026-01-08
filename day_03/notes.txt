@@ -1,0 +1,11 @@
+- Se o middleware estiver com 4 parametros, automaticamente o express entende como um middleware de erro.
+
+- Controllers encaminham erros
+  Middlewares tratam erros
+  Services podem lançar erros
+
+- Resumo rápido do delete
+  - findIndex = localizar registro
+  - splice = remover registro
+  - Array em memória = “tabela temporária”
+  - ORM = abstração desses passos

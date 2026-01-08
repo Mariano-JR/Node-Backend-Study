@@ -78,8 +78,32 @@ Conceitos-chave:
 - Uso de parâmetros de rota (req.params)
 
 Endpoints implementados:
-- ```GET /users``` → Retorna todos os usuários
-- ```GET /users/:id``` → Retorna um usuário pelo ID
+- `GET /users` → Retorna todos os usuários
+- `GET /users/:id` → Retorna um usuário pelo ID
+
+### Dia 03 — POST, Validação e Tratamento de Erros
+- Criação de recursos com método POST
+- Uso do `req.body`
+- Validação básica de dados de entrada
+- Uso correto de status HTTP:
+  - `201 Created`
+  - `400 Bad Request`
+  - `404 Not Found`
+  - `204 No Content`
+- Implementação de middleware global de erro
+- Fluxo de erros com `next(error)`
+- Remoção de dados em memória (array)
+
+Endpoints implementados:
+- `POST /users` — Cria um novo usuário
+- `DELETE /users/:id` — Remove um usuário pelo ID
+
+Conceitos importantes praticados:
+- Controllers não tratam erro 500 diretamente
+- Services podem lançar erros
+- Middlewares centralizam o tratamento de erros
+- Importância do `return` para controle de fluxo HTTP
+- Diferença entre lógica de negócio e validação de entrada
 
 ## 🎯 Objetivo do Repositório
 - Consolidar fundamentos de back-end
@@ -92,11 +116,12 @@ Endpoints implementados:
     - Boas práticas avançadas
 
 ## 📌 Próximos passos
-- ```POST /users```
-- Validação de dados
-- Middleware global de erros
-- Status HTTP adequados
-- Evolução da API
+- Atualização de usuários (`PUT` e `PATCH`)
+- Refatoração de controllers
+- Introdução a DTOs
+- Validações mais robustas
+- Melhoria no tratamento de erros
+- Persistência com banco de dados
 
 ## Observação
 Este repositório é **exclusivamente educacional**, focado em aprendizado progressivo e entendimento dos conceitos por trás das ferramentas utilizadas.
