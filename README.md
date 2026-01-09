@@ -52,7 +52,7 @@ O servidor será iniciado em:
 ```
 ## 📚 Conteúdo estudado
 
-### Dia 01 – Fundamentos do Node.js
+### 📅 Dia 01 – Fundamentos do Node.js
 - O que é Node.js e como funciona
 - Event Loop
 - Assincronismo (Promise, async/await)
@@ -66,7 +66,7 @@ Conceitos-chave:
 - Event-driven architecture
 - Separação entre código síncrono e assíncrono
 
-### Dia 02 – Introdução ao Express com TypeScript
+### 📅 Dia 02 – Introdução ao Express com TypeScript
 - Por que usar Express
 - Criação de API com Express
 - Separação de responsabilidades:
@@ -81,7 +81,7 @@ Endpoints implementados:
 - `GET /users` → Retorna todos os usuários
 - `GET /users/:id` → Retorna um usuário pelo ID
 
-### Dia 03 — POST, Validação e Tratamento de Erros
+### 📅 Dia 03 — POST, Validação e Tratamento de Erros
 - Criação de recursos com método POST
 - Uso do `req.body`
 - Validação básica de dados de entrada
@@ -105,6 +105,32 @@ Conceitos importantes praticados:
 - Importância do `return` para controle de fluxo HTTP
 - Diferença entre lógica de negócio e validação de entrada
 
+### 📅 Dia 04 — Update de Recursos (PUT e PATCH)
+- Diferença prática entre `PUT` e `PATCH`
+- Atualização parcial de recursos (`PATCH`)
+- Substituição completa de recursos (`PUT`)
+- Reutilização de services com regras HTTP diferentes
+- Consolidação da arquitetura controller → service
+- Validação de dados de entrada
+- Uso consistente de status HTTP
+
+Endpoints implementados:
+- `PATCH /users/:id` — Atualiza parcialmente um usuário
+- `PUT /users/:id` — Substitui os dados de um usuário
+
+Status HTTP utilizados:
+- `200 OK` — Atualização realizada com sucesso
+- `400 Bad Request` — Dados obrigatórios ausentes
+- `404 Not Found` — Usuário não encontrado
+- `500 Internal Server Error` — Erros de regra de negócio
+
+Conceitos importantes praticados:
+- PUT e PATCH compartilham o mesmo service, mas não o mesmo controller
+- Controllers são responsáveis pela semântica HTTP
+- Services concentram regras de negócio
+- Importância do controle de fluxo com `return`
+- Atualização de estado em memória (array)
+
 ## 🎯 Objetivo do Repositório
 - Consolidar fundamentos de back-end
 - Criar histórico de aprendizado diário
@@ -116,12 +142,14 @@ Conceitos importantes praticados:
     - Boas práticas avançadas
 
 ## 📌 Próximos passos
-- Atualização de usuários (`PUT` e `PATCH`)
-- Refatoração de controllers
-- Introdução a DTOs
-- Validações mais robustas
-- Melhoria no tratamento de erros
-- Persistência com banco de dados
+- Introdução a DTOs (Data Transfer Objects)
+- Validação de dados com bibliotecas (ex.: Zod)
+- Centralização e padronização de erros
+- Refatoração de controllers para reduzir responsabilidades
+- Melhoria na tipagem dos services
+- Implementação de testes básicos
+- Persistência de dados com banco (SQLite ou PostgreSQL)
+- Introdução ao Repository Pattern
 
 ## Observação
 Este repositório é **exclusivamente educacional**, focado em aprendizado progressivo e entendimento dos conceitos por trás das ferramentas utilizadas.
