@@ -1,0 +1,13 @@
+- DTO (Data Transfer Object) é um contrato de dados que define:
+  - O que a API espera receber
+  - O que é válido ou inválido
+  - O formato correto da entrada
+
+  - DTO não é:
+    - Model
+    - Entity
+    - Service
+
+  - DTO é:
+    - Um objeto de entrada
+    - Uma camada entre req.body e sua lógica

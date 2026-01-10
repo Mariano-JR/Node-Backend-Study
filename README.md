@@ -20,16 +20,20 @@ O objetivo deste projeto é registrar a evolução diária dos estudos, seguindo
 
 ```
 src/
-├── app.ts
-├── server.ts
-├── routes/
-│ └── users.routes.ts
 ├── controllers/
-│ └── users.controllers.ts
+│   └── users.controllers.ts
 ├── services/
-│ └── users.services.ts
+│   └── users.services.ts
+├── routes/
+│   └── users.routes.ts
 ├── middlewares/
-│ └── log.middleware.ts
+│   ├── log.middleware.ts
+│   └── error.middleware.ts
+├── dtos/
+│   ├── create-user.dto.ts
+│   └── update-user.dto.ts
+├── app.ts
+└── server.ts
 users.json
 ```
 ## ▶️ Como executar o projeto
@@ -131,6 +135,24 @@ Conceitos importantes praticados:
 - Importância do controle de fluxo com `return`
 - Atualização de estado em memória (array)
 
+### 📅 Dia 05 — DTOs, Validação e Robustez da API
+- Introdução a DTOs (Data Transfer Objects) para padronizar entradas
+- Validação de dados com Zod
+- Uso de `.parse()` para validação síncrona
+- Tratamento global de erros com Error Middleware
+- Diferenciação entre:
+  - Erros de validação (400)
+  - Recurso não encontrado (404)
+  - Erros internos (500)
+- Refinamento das rotas PUT e PATCH
+- Controllers mais limpos e previsíveis
+
+Funcionalidades implementadas:
+- Validação automática de payloads em `POST`, `PUT` e `PATCH`
+- Mensagens de erro claras para o cliente
+- Centralização da lógica de erro no middleware
+- Atualização parcial (PATCH) e total (PUT) de usuários
+
 ## 🎯 Objetivo do Repositório
 - Consolidar fundamentos de back-end
 - Criar histórico de aprendizado diário
@@ -142,14 +164,14 @@ Conceitos importantes praticados:
     - Boas práticas avançadas
 
 ## 📌 Próximos passos
-- Introdução a DTOs (Data Transfer Objects)
-- Validação de dados com bibliotecas (ex.: Zod)
-- Centralização e padronização de erros
-- Refatoração de controllers para reduzir responsabilidades
-- Melhoria na tipagem dos services
-- Implementação de testes básicos
-- Persistência de dados com banco (SQLite ou PostgreSQL)
-- Introdução ao Repository Pattern
+- Introduzir persistência real de dados (SQLite ou PostgreSQL)
+- Migrar camada de validação para middlewares dedicados
+- Implementar testes automatizados (Jest ou Vitest)
+- Adicionar paginação e filtros nas rotas
+- Introduzir autenticação (JWT)
+- Evoluir para uso de ORM (Prisma)
+- Criar documentação com Swagger/OpenAPI
+- Preparar versão do projeto para apresentação em entrevistas
 
 ## Observação
 Este repositório é **exclusivamente educacional**, focado em aprendizado progressivo e entendimento dos conceitos por trás das ferramentas utilizadas.
