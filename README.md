@@ -1,3 +1,13 @@
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat&logo=typescript&logoColor=white)
+![Express](https://img.shields.io/badge/Express-4.x-000000?style=flat&logo=express&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-Validation-3E67B1?style=flat)
+![REST API](https://img.shields.io/badge/API-RESTful-blue?style=flat)
+![Layered Architecture](https://img.shields.io/badge/Architecture-Layered-blueviolet?style=flat)
+![Clean Code](https://img.shields.io/badge/Clean-Code-success?style=flat)
+![Middleware](https://img.shields.io/badge/Middleware-Error%20Handling-important?style=flat)
+![Learning](https://img.shields.io/badge/Learning-Backend%20Node.js-orange?style=flat)
+![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat)
 
 # Node Backend Study
 
