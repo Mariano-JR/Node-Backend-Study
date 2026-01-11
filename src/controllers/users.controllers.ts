@@ -1,7 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 import { createUser, deleteUserById, findAllUsers, findUserById, updateUserById } from '../services/users.services';
-import { createUserSchema } from '../dtos/create-user.dto';
-import { updateUserSchema } from '../dtos/update-user.dto';
 
 export function getUsers(req: Request, res: Response) {
     const users = findAllUsers();
@@ -21,16 +19,11 @@ export function getUsersById(req: Request, res: Response) {
 };
 
 export function createUserController(req: Request, res: Response, next: NextFunction) {
-    try {
-        const data = createUserSchema.parse(req.body);
+    const { name } = req.body;
         
-        const user = createUser(data.name);
+    const user = createUser(name);
 
-        return res.status(201).json(user);
-    } catch (e) {
-        next(e);
-    };
-    
+    return res.status(201).json(user);
 };
 
 export function deleteUserController(req: Request, res: Response, next: NextFunction) {
@@ -50,35 +43,27 @@ export function deleteUserController(req: Request, res: Response, next: NextFunc
 };
 
 export function updateUserByIdController(req: Request, res: Response, next: NextFunction) {
-    try {
-        const { id } = req.params;
-        const data = updateUserSchema.parse(req.body);
+    const { id } = req.params;
+    const { name } = req.body;
 
-        const updatedUser = updateUserById(id, data.name!);
+    const updatedUser = updateUserById(id, name);
 
-        if (!updatedUser) {
-            return res.status(404).json({ message: 'User not found' });
-        };
+    if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+    };
 
-        return res.json(updatedUser)
-    } catch (e) {
-        next(e);
-    }
+    return res.json(updatedUser);
 };
 
 export function replaceUserController(req: Request, res: Response, next: NextFunction) {
-    try {
-        const { id } = req.params;
-        const data = updateUserSchema.parse(req.body)
+    const { id } = req.params;
+    const { name } = req.body;
 
-        const updatedUser = updateUserById(id, data.name!);
+    const updatedUser = updateUserById(id, name);
 
-        if (!updatedUser) {
-            return res.status(404).json({ message: 'User not found' });
-        };
+    if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+    };
 
-        return res.json(updatedUser);
-    } catch (e) {
-        next(e);
-    }
+    return res.json(updatedUser);
 };

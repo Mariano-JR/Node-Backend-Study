@@ -10,24 +10,20 @@
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat)
 
 # Node Backend Study
-
-Repositório dedicado ao estudo de **Back-end com Node.js e TypeScript**, focado na construção de uma base sólida antes do uso de ferramentas mais avançadas.
-
-O objetivo deste projeto é registrar a evolução diária dos estudos, seguindo boas práticas de mercado e entendimento real dos fundamentos do Node.js.
+O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-end com `Node.js`, aplicando boas práticas de mercado e construindo uma base sólida antes do uso de ferramentas mais avançadas.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
-
 - Node.js
 - TypeScript
 - Express.js
+- Zod
 - Git & GitHub
 
 ---
 
 ## 📁 Estrutura do Projeto (atual)
-
 ```
 src/
 ├── controllers/
@@ -38,24 +34,24 @@ src/
 │   └── users.routes.ts
 ├── middlewares/
 │   ├── log.middleware.ts
-│   └── error.middleware.ts
+|   ├── error.middleware.ts
+│   └── validate.middleware.ts
 ├── dtos/
 │   ├── create-user.dto.ts
 │   └── update-user.dto.ts
 ├── app.ts
 └── server.ts
+
 users.json
 ```
 ## ▶️ Como executar o projeto
 
 ### 1. Instalar dependências
-
 ```bash
   npm install
 ```
 
 ### 2. Rodar em ambiente de desenvolvimento
-
 ```bash
   npm run dev
 ```
@@ -65,107 +61,32 @@ O servidor será iniciado em:
   http://localhost:3000
 ```
 ## 📚 Conteúdo estudado
-
-### 📅 Dia 01 – Fundamentos do Node.js
-- O que é Node.js e como funciona
-- Event Loop
-- Assincronismo (Promise, async/await)
-- Manipulação de arquivos com fs
-- Criação de servidor HTTP puro
-- Leitura de arquivos JSON
-- Retorno de dados via HTTP
-
-Conceitos-chave:
-- Non-blocking I/O
-- Event-driven architecture
-- Separação entre código síncrono e assíncrono
-
-### 📅 Dia 02 – Introdução ao Express com TypeScript
-- Por que usar Express
-- Criação de API com Express
-- Separação de responsabilidades:
-    - Routes
-    - Controllers
-    - Services
-- Uso de middlewares
-- Criação de endpoints REST
-- Uso de parâmetros de rota (req.params)
-
-Endpoints implementados:
-- `GET /users` → Retorna todos os usuários
-- `GET /users/:id` → Retorna um usuário pelo ID
-
-### 📅 Dia 03 — POST, Validação e Tratamento de Erros
-- Criação de recursos com método POST
-- Uso do `req.body`
-- Validação básica de dados de entrada
-- Uso correto de status HTTP:
-  - `201 Created`
-  - `400 Bad Request`
-  - `404 Not Found`
-  - `204 No Content`
-- Implementação de middleware global de erro
-- Fluxo de erros com `next(error)`
-- Remoção de dados em memória (array)
-
-Endpoints implementados:
-- `POST /users` — Cria um novo usuário
-- `DELETE /users/:id` — Remove um usuário pelo ID
-
-Conceitos importantes praticados:
-- Controllers não tratam erro 500 diretamente
-- Services podem lançar erros
-- Middlewares centralizam o tratamento de erros
-- Importância do `return` para controle de fluxo HTTP
-- Diferença entre lógica de negócio e validação de entrada
-
-### 📅 Dia 04 — Update de Recursos (PUT e PATCH)
-- Diferença prática entre `PUT` e `PATCH`
-- Atualização parcial de recursos (`PATCH`)
-- Substituição completa de recursos (`PUT`)
-- Reutilização de services com regras HTTP diferentes
-- Consolidação da arquitetura controller → service
-- Validação de dados de entrada
-- Uso consistente de status HTTP
-
-Endpoints implementados:
-- `PATCH /users/:id` — Atualiza parcialmente um usuário
-- `PUT /users/:id` — Substitui os dados de um usuário
-
-Status HTTP utilizados:
-- `200 OK` — Atualização realizada com sucesso
-- `400 Bad Request` — Dados obrigatórios ausentes
-- `404 Not Found` — Usuário não encontrado
-- `500 Internal Server Error` — Erros de regra de negócio
-
-Conceitos importantes praticados:
-- PUT e PATCH compartilham o mesmo service, mas não o mesmo controller
-- Controllers são responsáveis pela semântica HTTP
-- Services concentram regras de negócio
-- Importância do controle de fluxo com `return`
-- Atualização de estado em memória (array)
-
-### 📅 Dia 05 — DTOs, Validação e Robustez da API
-- Introdução a DTOs (Data Transfer Objects) para padronizar entradas
+- Fundamentos do Node.js e Event Loop
+- Programação assíncrona
+- Express e criação de APIs REST
+- Arquitetura em camadas (Controllers, Services, Routes)
+- Middlewares e ciclo de requisição
+- Middleware de logging
+- Error handling centralizado
+- DTOs (Data Transfer Objects)
 - Validação de dados com Zod
-- Uso de `.parse()` para validação síncrona
-- Tratamento global de erros com Error Middleware
-- Diferenciação entre:
-  - Erros de validação (400)
-  - Recurso não encontrado (404)
-  - Erros internos (500)
-- Refinamento das rotas PUT e PATCH
-- Controllers mais limpos e previsíveis
+- Middleware genérico de validação (Zod)
+- Separação de responsabilidades (Controller x Validação)
+- Operações CRUD
+- Boas práticas com TypeScript
 
-Funcionalidades implementadas:
-- Validação automática de payloads em `POST`, `PUT` e `PATCH`
-- Mensagens de erro claras para o cliente
-- Centralização da lógica de erro no middleware
-- Atualização parcial (PATCH) e total (PUT) de usuários
+## 🧩 Destaques Técnicos
+- Arquitetura em camadas (routes, controllers, services e middlewares), promovendo separação de responsabilidades.
+- Validação centralizada de dados utilizando Zod, aplicada diretamente nas rotas por meio de middleware genérico reutilizável.
+- Tratamento de erros centralizado com middleware dedicado, incluindo integração com erros de validação do Zod.
+- Uso correto dos métodos HTTP (GET, POST, PATCH, PUT e DELETE), respeitando semântica REST.
+- Diferenciação prática entre PATCH (atualização parcial) e PUT (substituição completa de recurso).
+- Código escrito em TypeScript, com tipagem explícita e organização voltada à escalabilidade.
+- Estrutura preparada para futura evolução com banco de dados, autenticação e testes automatizados.
 
 ## 🎯 Objetivo do Repositório
 - Consolidar fundamentos de back-end
-- Criar histórico de aprendizado diário
+- Demonstrar evolução prática em Node.js
 - Evoluir gradualmente para:
     - Validações
     - Tratamento de erros
@@ -175,7 +96,7 @@ Funcionalidades implementadas:
 
 ## 📌 Próximos passos
 - Introduzir persistência real de dados (SQLite ou PostgreSQL)
-- Migrar camada de validação para middlewares dedicados
+- Refatorar services para preparação de integração com banco de dados
 - Implementar testes automatizados (Jest ou Vitest)
 - Adicionar paginação e filtros nas rotas
 - Introduzir autenticação (JWT)
@@ -183,5 +104,10 @@ Funcionalidades implementadas:
 - Criar documentação com Swagger/OpenAPI
 - Preparar versão do projeto para apresentação em entrevistas
 
-## Observação
-Este repositório é **exclusivamente educacional**, focado em aprendizado progressivo e entendimento dos conceitos por trás das ferramentas utilizadas.
+## 📘 Anotações de Estudo
+As anotações detalhadas sobre os conceitos estudados estão disponíveis no Notion:
+
+👉[Acessar anotações no Notion](https://www.notion.so/mariano-jr/Node-Backend-Study-Notes-2e5bc482362080d1a193ffa3d2c2e47a?source=copy_link)
+
+## 📝 Observação
+Este repositório possui caráter educacional e representa minha evolução prática no desenvolvimento back-end com `Node.js` e `TypeScript`, com foco em organização, boas práticas e entendimento dos fundamentos.
