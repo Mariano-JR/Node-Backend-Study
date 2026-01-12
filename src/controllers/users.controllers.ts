@@ -28,10 +28,6 @@ export function createUserController(req: Request, res: Response, next: NextFunc
 
 export function deleteUserController(req: Request, res: Response, next: NextFunction) {
    const { id } = req.params;
-
-    if (!id) {
-        return res.status(400).json({ message: 'Id is required' });
-    };
         
     const deleted = deleteUserById(id);
 
