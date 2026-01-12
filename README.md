@@ -1,16 +1,14 @@
-![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat&logo=node.js&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-24+-339933?style=flat&logo=node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat&logo=typescript&logoColor=white)
-![Express](https://img.shields.io/badge/Express-4.x-000000?style=flat&logo=express&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5.x-000000?style=flat&logo=express&logoColor=white)
 ![Zod](https://img.shields.io/badge/Zod-Validation-3E67B1?style=flat)
 ![REST API](https://img.shields.io/badge/API-RESTful-blue?style=flat)
-![Layered Architecture](https://img.shields.io/badge/Architecture-Layered-blueviolet?style=flat)
-![Clean Code](https://img.shields.io/badge/Clean-Code-success?style=flat)
-![Middleware](https://img.shields.io/badge/Middleware-Error%20Handling-important?style=flat)
-![Learning](https://img.shields.io/badge/Learning-Backend%20Node.js-orange?style=flat)
+![Vitest](https://img.shields.io/badge/Vitest-Testing-6E9F18?style=flat&logo=vitest&logoColor=white)
+![Supertest](https://img.shields.io/badge/Supertest-API%20Testing-333333?style=flat)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat)
 
 # Node Backend Study
-O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-end com `Node.js`, aplicando boas práticas de mercado e construindo uma base sólida antes do uso de ferramentas mais avançadas.
+O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-end com **Node.js**, aplicando boas práticas de mercado e construindo uma base sólida antes do uso de ferramentas mais avançadas.
 
 ---
 
@@ -18,7 +16,9 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 - Node.js
 - TypeScript
 - Express.js
-- Zod
+- Zod (validação de dados)
+- Vitest (testes automatizados)
+- Supertest (testes de rotas HTTP)
 - Git & GitHub
 
 ---
@@ -42,8 +42,12 @@ src/
 ├── app.ts
 └── server.ts
 
+tests/
+└── users.test.ts
+
 users.json
 ```
+
 ## ▶️ Como executar o projeto
 
 ### 1. Instalar dependências
@@ -60,6 +64,29 @@ O servidor será iniciado em:
 ```bash
   http://localhost:3000
 ```
+
+## 🧪 Testes Automatizados
+
+O projeto conta com testes automatizados para garantir o correto funcionamento das rotas da API, cobrindo cenários de sucesso e erro.
+
+### Ferramentas utilizadas
+- **Vitest**: framework de testes
+- **Supertest**: testes de requisições HTTP
+
+### O que é testado
+- Listagem de usuários
+- Busca por ID
+- Criação de usuário
+- Atualização parcial (PATCH)
+- Substituição completa (PUT)
+- Remoção de usuário
+- Validações e respostas de erro (400 e 404)
+
+### Executar os testes
+```bash
+npm run test
+```
+
 ## 📚 Conteúdo estudado
 - Fundamentos do Node.js e Event Loop
 - Programação assíncrona
@@ -73,6 +100,10 @@ O servidor será iniciado em:
 - Middleware genérico de validação (Zod)
 - Separação de responsabilidades (Controller x Validação)
 - Operações CRUD
+- Testes automatizados de APIs
+- Testes de integração com Supertest
+- Organização de testes por rota e método HTTP
+- Boas práticas em testes (isolamento e cenários de erro)
 - Boas práticas com TypeScript
 
 ## 🧩 Destaques Técnicos
@@ -95,14 +126,12 @@ O servidor será iniciado em:
     - Boas práticas avançadas
 
 ## 📌 Próximos passos
-- Introduzir persistência real de dados (SQLite ou PostgreSQL)
-- Refatorar services para preparação de integração com banco de dados
-- Implementar testes automatizados (Jest ou Vitest)
-- Adicionar paginação e filtros nas rotas
-- Introduzir autenticação (JWT)
-- Evoluir para uso de ORM (Prisma)
-- Criar documentação com Swagger/OpenAPI
-- Preparar versão do projeto para apresentação em entrevistas
+- Melhorar isolamento dos testes (setup e teardown)
+- Introduzir mocks e spies
+- Migrar persistência para banco de dados real
+- Implementar autenticação (JWT)
+- Criar testes para autenticação
+- Documentar API com Swagger/OpenAPI
 
 ## 📘 Anotações de Estudo
 As anotações detalhadas sobre os conceitos estudados estão disponíveis no Notion:
@@ -110,4 +139,4 @@ As anotações detalhadas sobre os conceitos estudados estão disponíveis no No
 👉[Acessar anotações no Notion](https://www.notion.so/mariano-jr/Node-Backend-Study-Notes-2e5bc482362080d1a193ffa3d2c2e47a?source=copy_link)
 
 ## 📝 Observação
-Este repositório possui caráter educacional e representa minha evolução prática no desenvolvimento back-end com `Node.js` e `TypeScript`, com foco em organização, boas práticas e entendimento dos fundamentos.
+Este repositório possui caráter educacional e representa minha evolução prática no desenvolvimento back-end com **Node.js** e **TypeScript**, com foco em organização, boas práticas e entendimento dos fundamentos.
