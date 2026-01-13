@@ -28,7 +28,11 @@ describe('Users API', () => {
     it('should return 404 when user not exists', async () => {
       const response = await request(app).get('/users/999999');
 
-      expect(response.status).toBe(404);
+      expect(response.body).toEqual({
+        statusCode: 404,
+        error: 'Application Error',
+        message: 'User not found'
+      });
     });
   });
 
@@ -46,7 +50,13 @@ describe('Users API', () => {
     it('should return 400 if name is invalid', async () => {
       const response = await request(app).post('/users').send({ name: 'MJ' });
 
-      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        statusCode: 400,
+        errors: 'Validation Error',
+        message: [
+          'Invalid name'
+        ]
+      });
     });
   });
 
@@ -66,7 +76,11 @@ describe('Users API', () => {
     it('should return 404 when user not exist', async () => {
       const response = await request(app).delete('/users/999999');
 
-      expect(response.status).toBe(404);
+      expect(response.body).toEqual({
+        statusCode: 404,
+        error: 'Application Error',
+        message: 'User not found'
+      });
     });
   });
 
@@ -91,7 +105,11 @@ describe('Users API', () => {
         .patch('/users/999999')
         .send({ name: 'Mary Doe' });
 
-      expect(response.status).toBe(404);
+      expect(response.body).toEqual({
+        statusCode: 404,
+        error: 'Application Error',
+        message: 'User not found'
+      });
     });
 
     it('should return 400 when validation error', async () => {
@@ -99,7 +117,13 @@ describe('Users API', () => {
         .patch('/users/999999')
         .send({ name: 'MJ' });
 
-      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        statusCode: 400,
+        errors: 'Validation Error',
+        message: [
+          'Invalid name'
+        ]
+      });
     });
   });
 
@@ -124,7 +148,11 @@ describe('Users API', () => {
         .put('/users/999999')
         .send({ name: 'Mary Doe' });
 
-      expect(response.status).toBe(404);
+      expect(response.body).toEqual({
+        statusCode: 404,
+        error: 'Application Error',
+        message: 'User not found'
+      });
     });
 
     it('should return 400 when validation error', async () => {
@@ -132,7 +160,13 @@ describe('Users API', () => {
         .put('/users/999999')
         .send({ name: 'MJ' });
 
-      expect(response.status).toBe(400);
+      expect(response.body).toEqual({
+        statusCode: 400,
+        errors: 'Validation Error',
+        message: [
+          'Invalid name'
+        ]
+      });
     });
   });
 });

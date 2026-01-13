@@ -1,20 +1,22 @@
 import users from '../../users.json';
+import { AppError } from '../errors/app.error';
+import { errorMessages } from '../enums/error-messages.enum';
 
 export function findAllUsers() {
   return users;
 }
 
 export function findUserById(id: string) {
-  const userData = users.find((user) => String(user.id) === id);
+  const user = users.find((user) => String(user.id) === id);
 
-  return userData;
+  if (!user) {
+    throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+  }
+
+  return user;
 }
 
 export function createUser(name: string) {
-  if (name.length < 3) {
-    throw new Error('Name must have at least 3 characters');
-  }
-
   const newUser = {
     id: Date.now(),
     name,
@@ -24,26 +26,21 @@ export function createUser(name: string) {
   return newUser;
 }
 
-export function deleteUserById(id: string): boolean {
+export function deleteUserById(id: string) {
   const index = users.findIndex((user) => String(user.id) === id);
 
   if (index === -1) {
-    return false;
+    throw new AppError(errorMessages.USER_NOT_FOUND, 404);
   }
 
   users.splice(index, 1);
-  return true;
 }
 
 export function updateUserById(id: string, name: string) {
   const user = users.find((user) => String(user.id) === id);
 
   if (!user) {
-    return null;
-  }
-
-  if (name.length < 3) {
-    throw new Error('Name must have at least 3 characters');
+    throw new AppError(errorMessages.USER_NOT_FOUND, 404)
   }
 
   user.name = name;

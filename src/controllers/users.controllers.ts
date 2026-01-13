@@ -17,10 +17,6 @@ export function getUsersById(req: Request, res: Response) {
 
   const user = findUserById(id);
 
-  if (!user) {
-    return res.status(404).json({ message: 'User not found' });
-  }
-
   return res.json(user);
 }
 
@@ -43,11 +39,7 @@ export function deleteUserController(
 ) {
   const { id } = req.params;
 
-  const deleted = deleteUserById(id);
-
-  if (!deleted) {
-    return res.status(404).json({ message: 'User not found' });
-  }
+  deleteUserById(id);
 
   return res.status(204).send();
 }
@@ -62,10 +54,6 @@ export function updateUserByIdController(
 
   const updatedUser = updateUserById(id, name);
 
-  if (!updatedUser) {
-    return res.status(404).json({ message: 'User not found' });
-  }
-
   return res.json(updatedUser);
 }
 
@@ -78,10 +66,6 @@ export function replaceUserController(
   const { name } = req.body;
 
   const updatedUser = updateUserById(id, name);
-
-  if (!updatedUser) {
-    return res.status(404).json({ message: 'User not found' });
-  }
 
   return res.json(updatedUser);
 }
