@@ -21,8 +21,7 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 - Zod (validação de dados)
 - Vitest (testes automatizados)
 - Supertest (testes de rotas HTTP)
-- ESLint
-- Prettier
+- ESLint (padronização de código)
 - Git & GitHub
 
 ---
@@ -44,6 +43,10 @@ src/
 ├── dtos/
 │   ├── create-user.dto.ts
 │   └── update-user.dto.ts
+├── errors/
+│   └── app.error.ts
+├── enums/
+│   └── error.messages.enum.ts
 ├── app.ts
 └── server.ts
 
@@ -98,37 +101,32 @@ O projeto conta com testes automatizados para garantir o correto funcionamento d
 npm run test
 ```
 
-## 📚 Conteúdo estudado
+## 📚 Conteúdo Estudado
 
 - Fundamentos do Node.js e Event Loop
 - Programação assíncrona
 - Express e criação de APIs REST
-- Arquitetura em camadas (Controllers, Services, Routes)
+- Arquitetura em camadas (controllers, services, routes)
 - Middlewares e ciclo de requisição
-- Middleware de logging
-- Error handling centralizado
-- DTOs (Data Transfer Objects)
 - Validação de dados com Zod
-- Middleware genérico de validação (Zod)
-- Separação de responsabilidades (Controller x Validação)
+- DTOs e schemas de validação
+- Error handling centralizado
+- Criação de erros customizados (`AppError`)
+- Padronização de mensagens de erro com Enums
 - Operações CRUD
-- Testes automatizados de APIs
-- Testes de integração com Supertest
-- Organização de testes por rota e método HTTP
-- Boas práticas em testes (isolamento e cenários de erro)
+- Testes automatizados de APIs (Vitest + Supertest)
 - Boas práticas com TypeScript
+- Padronização de código com ESLint
 
-## 🧩 Destaques Técnicos
-
-- Arquitetura em camadas (routes, controllers, services e middlewares), promovendo separação de responsabilidades.
-- Validação centralizada de dados utilizando Zod, aplicada diretamente nas rotas por meio de middleware genérico reutilizável.
-- Tratamento de erros centralizado com middleware dedicado, incluindo integração com erros de validação do Zod.
-- Uso correto dos métodos HTTP (GET, POST, PATCH, PUT e DELETE), respeitando semântica REST.
-- Diferenciação prática entre PATCH (atualização parcial) e PUT (substituição completa de recurso).
-- Código escrito em TypeScript, com tipagem explícita e organização voltada à escalabilidade.
-- Estrutura preparada para futura evolução com banco de dados, autenticação e testes automatizados.
-- Padronização de código com ESLint e Prettier.
-- Scripts para lint, formatação e testes.
+## ⭐ Destaques Técnicos
+- Arquitetura em camadas bem definida (Controllers, Services, Routes)
+- Validação de dados com Zod aplicada via middleware
+- Tratamento de erros centralizado com middleware global
+- Criação de erros customizados com classe `AppError`
+- Padronização de mensagens de erro utilizando Enums
+- Testes automatizados de API com Vitest e Supertest
+- ESLint configurado para padronização e qualidade de código
+- Código orientado a boas práticas e legibilidade
 
 ## 🎯 Objetivo do Repositório
 
@@ -143,12 +141,13 @@ npm run test
 
 ## 📌 Próximos passos
 
-- Melhorar isolamento dos testes (setup e teardown)
-- Introduzir mocks e spies
-- Migrar persistência para banco de dados real
-- Implementar autenticação (JWT)
-- Criar testes para autenticação
-- Documentar API com Swagger/OpenAPI
+- Introduzir persistência real de dados (SQLite ou PostgreSQL)
+- Implementar camada de repositórios
+- Introduzir autenticação e autorização (JWT)
+- Evoluir testes com cenários mais complexos
+- Criar documentação da API com Swagger/OpenAPI
+- Aplicar princípios de Clean Architecture
+- Preparar versão final para apresentação em entrevistas
 
 ## 📘 Anotações de Estudo
 
