@@ -8,22 +8,27 @@
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat)
 
 # Node Backend Study
+
 O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-end com **Node.js**, aplicando boas práticas de mercado e construindo uma base sólida antes do uso de ferramentas mais avançadas.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
+
 - Node.js
 - TypeScript
 - Express.js
 - Zod (validação de dados)
 - Vitest (testes automatizados)
 - Supertest (testes de rotas HTTP)
+- ESLint
+- Prettier
 - Git & GitHub
 
 ---
 
 ## 📁 Estrutura do Projeto (atual)
+
 ```
 src/
 ├── controllers/
@@ -51,16 +56,19 @@ users.json
 ## ▶️ Como executar o projeto
 
 ### 1. Instalar dependências
+
 ```bash
   npm install
 ```
 
 ### 2. Rodar em ambiente de desenvolvimento
+
 ```bash
   npm run dev
 ```
 
 O servidor será iniciado em:
+
 ```bash
   http://localhost:3000
 ```
@@ -70,10 +78,12 @@ O servidor será iniciado em:
 O projeto conta com testes automatizados para garantir o correto funcionamento das rotas da API, cobrindo cenários de sucesso e erro.
 
 ### Ferramentas utilizadas
+
 - **Vitest**: framework de testes
 - **Supertest**: testes de requisições HTTP
 
 ### O que é testado
+
 - Listagem de usuários
 - Busca por ID
 - Criação de usuário
@@ -83,11 +93,13 @@ O projeto conta com testes automatizados para garantir o correto funcionamento d
 - Validações e respostas de erro (400 e 404)
 
 ### Executar os testes
+
 ```bash
 npm run test
 ```
 
 ## 📚 Conteúdo estudado
+
 - Fundamentos do Node.js e Event Loop
 - Programação assíncrona
 - Express e criação de APIs REST
@@ -107,6 +119,7 @@ npm run test
 - Boas práticas com TypeScript
 
 ## 🧩 Destaques Técnicos
+
 - Arquitetura em camadas (routes, controllers, services e middlewares), promovendo separação de responsabilidades.
 - Validação centralizada de dados utilizando Zod, aplicada diretamente nas rotas por meio de middleware genérico reutilizável.
 - Tratamento de erros centralizado com middleware dedicado, incluindo integração com erros de validação do Zod.
@@ -114,18 +127,22 @@ npm run test
 - Diferenciação prática entre PATCH (atualização parcial) e PUT (substituição completa de recurso).
 - Código escrito em TypeScript, com tipagem explícita e organização voltada à escalabilidade.
 - Estrutura preparada para futura evolução com banco de dados, autenticação e testes automatizados.
+- Padronização de código com ESLint e Prettier.
+- Scripts para lint, formatação e testes.
 
 ## 🎯 Objetivo do Repositório
+
 - Consolidar fundamentos de back-end
 - Demonstrar evolução prática em Node.js
 - Evoluir gradualmente para:
-    - Validações
-    - Tratamento de erros
-    - Persistência em banco de dados
-    - Autenticação
-    - Boas práticas avançadas
+  - Validações
+  - Tratamento de erros
+  - Persistência em banco de dados
+  - Autenticação
+  - Boas práticas avançadas
 
 ## 📌 Próximos passos
+
 - Melhorar isolamento dos testes (setup e teardown)
 - Introduzir mocks e spies
 - Migrar persistência para banco de dados real
@@ -134,9 +151,11 @@ npm run test
 - Documentar API com Swagger/OpenAPI
 
 ## 📘 Anotações de Estudo
+
 As anotações detalhadas sobre os conceitos estudados estão disponíveis no Notion:
 
 👉[Acessar anotações no Notion](https://www.notion.so/mariano-jr/Node-Backend-Study-Notes-2e5bc482362080d1a193ffa3d2c2e47a?source=copy_link)
 
 ## 📝 Observação
+
 Este repositório possui caráter educacional e representa minha evolução prática no desenvolvimento back-end com **Node.js** e **TypeScript**, com foco em organização, boas práticas e entendimento dos fundamentos.
