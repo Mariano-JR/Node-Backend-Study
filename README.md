@@ -47,6 +47,11 @@ src/
 │   └── app.error.ts
 ├── enums/
 │   └── error.messages.enum.ts
+├── types/
+│   └── users.type.ts
+├── repositories/
+│   ├── in-memory-user.repository.ts
+│   └── user.repository.ts
 ├── app.ts
 └── server.ts
 
