@@ -119,6 +119,7 @@ npm run test
 - Padronização de código com ESLint
 
 ## ⭐ Destaques Técnicos
+
 - Arquitetura em camadas bem definida (Controllers, Services, Routes)
 - Validação de dados com Zod aplicada via middleware
 - Tratamento de erros centralizado com middleware global

@@ -1,48 +1,47 @@
-import users from '../../users.json';
-import { AppError } from '../errors/app.error';
 import { errorMessages } from '../enums/error-messages.enum';
+import { AppError } from '../errors/app.error';
+import { UserRepository } from '../repositories/user.repository';
 
-export function findAllUsers() {
-  return users;
-}
+export class UserService {
+  constructor(private userRepository: UserRepository) {}
 
-export function findUserById(id: string) {
-  const user = users.find((user) => String(user.id) === id);
-
-  if (!user) {
-    throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+  findAll() {
+    return this.userRepository.findAll();
   }
 
-  return user;
-}
+  findById(id: number) {
+    const user = this.userRepository.findById(id);
+    if (!user) {
+      throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+    }
 
-export function createUser(name: string) {
-  const newUser = {
-    id: Date.now(),
-    name,
-  };
-
-  users.push(newUser);
-  return newUser;
-}
-
-export function deleteUserById(id: string) {
-  const index = users.findIndex((user) => String(user.id) === id);
-
-  if (index === -1) {
-    throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+    return user;
   }
 
-  users.splice(index, 1);
-}
+  createUser(name: string) {
+    const newUser = {
+      id: Date.now(),
+      name: name,
+    };
 
-export function updateUserById(id: string, name: string) {
-  const user = users.find((user) => String(user.id) === id);
-
-  if (!user) {
-    throw new AppError(errorMessages.USER_NOT_FOUND, 404)
+    return this.userRepository.create(newUser);
   }
 
-  user.name = name;
-  return user;
+  deleteUser(id: number) {
+    const user = this.userRepository.findById(id);
+    if (!user) {
+      throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+    }
+
+    this.userRepository.delete(id);
+  }
+
+  updateUser(id: number, name: string) {
+    const user = this.userRepository.update(id, { name });
+    if (!user) {
+      throw new AppError(errorMessages.USER_NOT_FOUND, 404);
+    }
+
+    return user;
+  }
 }

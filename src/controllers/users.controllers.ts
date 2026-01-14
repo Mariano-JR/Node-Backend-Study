@@ -1,21 +1,19 @@
 import { NextFunction, Request, Response } from 'express';
-import {
-  createUser,
-  deleteUserById,
-  findAllUsers,
-  findUserById,
-  updateUserById,
-} from '../services/users.services';
+import { InMemoryUserRepository } from '../repositories/in-memory-user.repository';
+import { UserService } from '../services/users.services';
+
+const userRepository = new InMemoryUserRepository();
+const userService = new UserService(userRepository);
 
 export function getUsers(req: Request, res: Response) {
-  const users = findAllUsers();
+  const users = userService.findAll();
   return res.json(users);
 }
 
-export function getUsersById(req: Request, res: Response) {
+export function getUsersById(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
 
-  const user = findUserById(id);
+  const user = userService.findById(Number(id));
 
   return res.json(user);
 }
@@ -27,7 +25,7 @@ export function createUserController(
 ) {
   const { name } = req.body;
 
-  const user = createUser(name);
+  const user = userService.createUser(name);
 
   return res.status(201).json(user);
 }
@@ -39,7 +37,7 @@ export function deleteUserController(
 ) {
   const { id } = req.params;
 
-  deleteUserById(id);
+  userService.deleteUser(Number(id));
 
   return res.status(204).send();
 }
@@ -52,7 +50,7 @@ export function updateUserByIdController(
   const { id } = req.params;
   const { name } = req.body;
 
-  const updatedUser = updateUserById(id, name);
+  const updatedUser = userService.updateUser(Number(id), name);
 
   return res.json(updatedUser);
 }
@@ -65,7 +63,7 @@ export function replaceUserController(
   const { id } = req.params;
   const { name } = req.body;
 
-  const updatedUser = updateUserById(id, name);
+  const updatedUser = userService.updateUser(Number(id), name);
 
   return res.json(updatedUser);
 }

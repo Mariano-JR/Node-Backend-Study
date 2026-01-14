@@ -31,7 +31,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 404,
         error: 'Application Error',
-        message: 'User not found'
+        message: 'User not found',
       });
     });
   });
@@ -53,9 +53,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: [
-          'Invalid name'
-        ]
+        message: ['Invalid name'],
       });
     });
   });
@@ -79,7 +77,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 404,
         error: 'Application Error',
-        message: 'User not found'
+        message: 'User not found',
       });
     });
   });
@@ -108,7 +106,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 404,
         error: 'Application Error',
-        message: 'User not found'
+        message: 'User not found',
       });
     });
 
@@ -120,9 +118,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: [
-          'Invalid name'
-        ]
+        message: ['Invalid name'],
       });
     });
   });
@@ -151,7 +147,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 404,
         error: 'Application Error',
-        message: 'User not found'
+        message: 'User not found',
       });
     });
 
@@ -163,9 +159,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: [
-          'Invalid name'
-        ]
+        message: ['Invalid name'],
       });
     });
   });
