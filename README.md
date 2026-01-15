@@ -20,8 +20,9 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 - Express.js
 - Zod (validação de dados)
 - Vitest (testes automatizados)
-- Supertest (testes de rotas HTTP)
-- ESLint (padronização de código)
+- Supertest (testes de requisições HTTP)
+- ESLint (análise de qualidade de código)
+- Prettier (formatação)
 - Git & GitHub
 
 ---

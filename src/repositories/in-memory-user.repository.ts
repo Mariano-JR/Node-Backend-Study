@@ -1,4 +1,4 @@
-import User from '../types/user.type';
+import { User } from '../types/user.type';
 import usersData from '../../users.json';
 import { UserRepository } from './user.repository';
 
