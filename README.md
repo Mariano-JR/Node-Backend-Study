@@ -31,32 +31,19 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 
 ```
 src/
-├── controllers/
-│   └── users.controllers.ts
-├── services/
-│   └── users.services.ts
-├── routes/
-│   └── users.routes.ts
-├── middlewares/
-│   ├── log.middleware.ts
-|   ├── error.middleware.ts
-│   └── validate.middleware.ts
-├── dtos/
-│   ├── create-user.dto.ts
-│   └── update-user.dto.ts
-├── errors/
-│   └── app.error.ts
-├── enums/
-│   └── error.messages.enum.ts
-├── types/
-│   └── users.type.ts
-├── repositories/
-│   ├── in-memory-user.repository.ts
-│   └── user.repository.ts
+├── controllers/     # HTTP layer (req/res handling)
+├── services/        # Business rules
+├── repositories/    # Data access abstraction
+├── dtos/            # Data Transfer Objects
+├── middlewares/     # Express middlewares
+├── errors/          # Custom application errors
+├── enums/           # Application enums (error messages, etc.)
+├── routes/          # Route definitions
+├── types/           # Domain and shared types
 ├── app.ts
 └── server.ts
 
-tests/
+tests/               # Integration and unit tests
 └── users.test.ts
 
 users.json
