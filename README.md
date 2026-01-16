@@ -31,22 +31,48 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 
 ```
 src/
-├── controllers/     # HTTP layer (req/res handling)
-├── services/        # Business rules
-├── repositories/    # Data access abstraction
-├── dtos/            # Data Transfer Objects
-├── middlewares/     # Express middlewares
-├── errors/          # Custom application errors
-├── enums/           # Application enums (error messages, etc.)
-├── routes/          # Route definitions
-├── types/           # Domain and shared types
-├── app.ts
-└── server.ts
+├── app.ts                  # Criação da aplicação (Express)
+├── server.ts               # Inicialização do servidor
+│
+├── controllers/
+│   └── users.controllers.ts
+│
+├── use-cases/
+│   ├── create-user.usecase.ts
+│   ├── get-user.usecase.ts
+│   ├── get-users.usecase.ts
+│   ├── update-user.usecase.ts
+│   ├── delete-user.usecase.ts
+│   └── index.ts             # Instâncias compartilhadas dos use cases
+│
+├── repositories/
+│   ├── user.repository.ts
+│   └── in-memory-user.repository.ts
+│
+├── dtos/
+│   ├── create-user.service.dto.ts
+│   ├── update-user.service.dto.ts
+│   └── user-response.dto.ts
+│
+├── middlewares/
+│   ├── error.middleware.ts
+│   ├── log.middleware.ts
+│   └── validate.middleware.ts
+│
+├── errors/
+│   └── app.error.ts
+│
+├── enums/
+│   └── error-messages.enum.ts
+│
+├── types/
+│   └── user.type.ts
+│
+└── routes/
+    └── users.routes.ts
 
-tests/               # Integration and unit tests
+tests/
 └── users.test.ts
-
-users.json
 ```
 
 ## ▶️ Como executar o projeto
