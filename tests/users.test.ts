@@ -1,7 +1,13 @@
 import request from 'supertest';
-import app from '../src/app';
+import { createApp } from '../src/app';
 
 describe('Users API', () => {
+  let app: ReturnType<typeof createApp>;
+
+  beforeEach(() => {
+    app = createApp();
+  });
+
   describe('GET /users', () => {
     it('should return a list of users', async () => {
       const response = await request(app).get('/users');
