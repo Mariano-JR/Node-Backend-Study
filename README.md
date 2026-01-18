@@ -94,30 +94,29 @@ npm run test
 ## 📚 Conteúdo Estudado
 
 - Fundamentos do Node.js e Event Loop
-- Programação assíncrona
-- Express e criação de APIs REST
-- Arquitetura em camadas (controllers, services, routes)
-- Middlewares e ciclo de requisição
-- Validação de dados com Zod
-- DTOs e schemas de validação
-- Error handling centralizado
+- Programação assíncrona e fluxo de requisições
+- Desenvolvimento de APIs REST com Express
+- Arquitetura em camadas (Controllers, Use Cases, Repositories)
+- Middlewares e ciclo de vida da requisição
+- Validação de dados com Zod e DTOs
+- Tratamento de erros centralizado
 - Criação de erros customizados (`AppError`)
 - Padronização de mensagens de erro com Enums
 - Operações CRUD
 - Testes automatizados de APIs (Vitest + Supertest)
 - Boas práticas com TypeScript
-- Padronização de código com ESLint
+- Padronização de código com ESLint e Prettier
 
 ## ⭐ Destaques Técnicos
 
-- Arquitetura em camadas bem definida (Controllers, Services, Routes)
+- Arquitetura baseada em responsabilidades (Controllers, Use Cases e Repositories)
 - Validação de dados com Zod aplicada via middleware
 - Tratamento de erros centralizado com middleware global
 - Criação de erros customizados com classe `AppError`
 - Padronização de mensagens de erro utilizando Enums
 - Testes automatizados de API com Vitest e Supertest
-- ESLint configurado para padronização e qualidade de código
-- Código orientado a boas práticas e legibilidade
+- Isolamento de regras de negócio em Use Cases
+- Código orientado à legibilidade, organização e boas práticas
 
 ## 🎯 Objetivo do Repositório
 
@@ -126,14 +125,14 @@ npm run test
 - Evoluir gradualmente para:
   - Validações
   - Tratamento de erros
-  - Persistência em banco de dados (MySQL)
+  - Persistência em banco de dados
   - Autenticação
   - Boas práticas avançadas
 
 ## 📌 Próximos passos
 
 - Introduzir persistência real de dados (SQLite ou PostgreSQL)
-- Implementar camada de repositórios
+- Evoluir a camada de repositórios para persistência real (SQLite ou PostgreSQL)
 - Introduzir autenticação e autorização (JWT)
 - Evoluir testes com cenários mais complexos
 - Criar documentação da API com Swagger/OpenAPI
