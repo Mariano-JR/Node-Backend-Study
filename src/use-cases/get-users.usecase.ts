@@ -1,7 +1,7 @@
 import { UserRepository } from "../repositories/user.repository";
 
 interface GetUsersOutput {
-    id: number,
+    id: string,
     name: string,
 }
 

@@ -8,7 +8,7 @@ export function getUsers(req: Request, res: Response) {
 }
 
 export function getUsersById(req: Request, res: Response) {
-  const id = Number(req.params.id);
+  const id = req.params.id;
 
   const user: UserResponse = getUserUseCsae.execute({ id });
 
@@ -30,7 +30,7 @@ export function deleteUserController(
   req: Request,
   res: Response,
 ) {
-  const id = Number(req.params.id);
+  const id = req.params.id;
 
   deleteUserUseCase.execute({ id });
 
@@ -41,7 +41,7 @@ export function updateUserByIdController(
   req: Request,
   res: Response,
 ) {
-  const id = Number(req.params.id);
+  const id = req.params.id;
   const { name } = req.body;
 
   const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });
@@ -53,7 +53,7 @@ export function replaceUserController(
   req: Request,
   res: Response,
 ) {
-  const id = Number(req.params.id);
+  const id = req.params.id;
   const { name } = req.body;
 
   const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });

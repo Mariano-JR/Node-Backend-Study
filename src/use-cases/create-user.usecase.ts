@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { AppError } from "../errors/app.error";
 import { errorMessages } from "../enums/error-messages.enum";
 import { UserRepository } from "../repositories/user.repository";
@@ -7,7 +8,7 @@ interface CreateUserInput {
 }
 
 interface CreateUserOutput {
-    id: number,
+    id: string,
     name: string,
 }
 
@@ -20,7 +21,7 @@ export class CreateUserUseCase {
         }
 
         const user = {
-            id: Date.now(),
+            id: uuidv4(),
             name: name,
         };
 

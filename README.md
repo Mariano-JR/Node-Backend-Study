@@ -31,48 +31,19 @@ O objetivo deste projeto é consolidar os fundamentos de desenvolvimento back-en
 
 ```
 src/
-├── app.ts                  # Criação da aplicação (Express)
-├── server.ts               # Inicialização do servidor
-│
 ├── controllers/
-│   └── users.controllers.ts
-│
 ├── use-cases/
-│   ├── create-user.usecase.ts
-│   ├── get-user.usecase.ts
-│   ├── get-users.usecase.ts
-│   ├── update-user.usecase.ts
-│   ├── delete-user.usecase.ts
-│   └── index.ts             # Instâncias compartilhadas dos use cases
-│
 ├── repositories/
-│   ├── user.repository.ts
-│   └── in-memory-user.repository.ts
-│
 ├── dtos/
-│   ├── create-user.service.dto.ts
-│   ├── update-user.service.dto.ts
-│   └── user-response.dto.ts
-│
 ├── middlewares/
-│   ├── error.middleware.ts
-│   ├── log.middleware.ts
-│   └── validate.middleware.ts
-│
 ├── errors/
-│   └── app.error.ts
-│
 ├── enums/
-│   └── error-messages.enum.ts
-│
 ├── types/
-│   └── user.type.ts
-│
-└── routes/
-    └── users.routes.ts
+├── routes/
+├── app.ts
+└── server.ts
 
 tests/
-└── users.test.ts
 ```
 
 ## ▶️ Como executar o projeto

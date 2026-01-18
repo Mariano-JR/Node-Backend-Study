@@ -1,4 +1,4 @@
 export interface updateUserServiceDTO {
-    id: number,
+    id: string,
     name: string,
 }

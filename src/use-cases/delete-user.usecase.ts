@@ -3,7 +3,7 @@ import { AppError } from "../errors/app.error";
 import { UserRepository } from "../repositories/user.repository";
 
 interface DeleteUserInput {
-    id: number,
+    id: string,
 }
 
 export class DeleteUserUseCase {

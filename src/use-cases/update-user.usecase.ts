@@ -3,7 +3,7 @@ import { errorMessages } from "../enums/error-messages.enum";
 import { UserRepository } from "../repositories/user.repository";
 
 interface UpdateUserInput {
-    id: number,
+    id: string,
     name: string,
 }
 

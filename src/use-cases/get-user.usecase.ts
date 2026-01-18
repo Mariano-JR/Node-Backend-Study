@@ -3,11 +3,11 @@ import { AppError } from "../errors/app.error";
 import { UserRepository } from "../repositories/user.repository";
 
 interface GetUserInput {
-    id: number,
+    id: string,
 }
 
 interface GetUserOutput {
-    id: number,
+    id: string,
     name: string,
 }
 
