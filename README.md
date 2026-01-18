@@ -155,7 +155,7 @@ npm run test
 - Evoluir gradualmente para:
   - Validações
   - Tratamento de erros
-  - Persistência em banco de dados
+  - Persistência em banco de dados (MySQL)
   - Autenticação
   - Boas práticas avançadas
 
