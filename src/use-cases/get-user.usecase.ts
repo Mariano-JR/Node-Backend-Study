@@ -1,3 +1,4 @@
+import { UserResponse } from "../dtos/user-reponse.dto";
 import { errorMessages } from "../enums/error-messages.enum";
 import { AppError } from "../errors/app.error";
 import { UserRepository } from "../repositories/user.repository";
@@ -6,15 +7,10 @@ interface GetUserInput {
     id: string,
 }
 
-interface GetUserOutput {
-    id: string,
-    name: string,
-}
-
 export class GetUserUseCase {
     constructor(private userRepository: UserRepository) { }
     
-    execute({ id }: GetUserInput): GetUserOutput {
+    execute({ id }: GetUserInput): UserResponse {
         const user = this.userRepository.findById(id);
 
         if (!user) {

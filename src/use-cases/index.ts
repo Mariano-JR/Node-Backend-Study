@@ -7,7 +7,7 @@ import { GetUserUseCase } from './get-user.usecase';
 
 const userRepository = new InMemoryUserRepository();
 
-export const getUserUseCsae = new GetUserUseCase(userRepository);
+export const getUserUseCase = new GetUserUseCase(userRepository);
 export const getUsersUseCase = new GetUsersUseCase(userRepository);
 export const createUserUseCase = new CreateUserUseCase(userRepository);
 export const updateUserUseCase = new UpdateUserUseCase(userRepository);

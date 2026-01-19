@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UserResponse } from '../dtos/user-reponse.dto';
-import { createUserUseCase, deleteUserUseCase, getUsersUseCase, getUserUseCsae, updateUserUseCase } from '../use-cases';
+import { createUserUseCase, deleteUserUseCase, getUsersUseCase, getUserUseCase, updateUserUseCase } from '../use-cases';
 
 export function getUsers(req: Request, res: Response) {
   const users: UserResponse[] = getUsersUseCase.execute();
@@ -10,7 +10,7 @@ export function getUsers(req: Request, res: Response) {
 export function getUsersById(req: Request, res: Response) {
   const id = req.params.id;
 
-  const user: UserResponse = getUserUseCsae.execute({ id });
+  const user: UserResponse = getUserUseCase.execute({ id });
 
   return res.json(user);
 }
