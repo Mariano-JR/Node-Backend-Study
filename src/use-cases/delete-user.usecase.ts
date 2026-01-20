@@ -9,7 +9,7 @@ interface DeleteUserInput {
 export class DeleteUserUseCase {
     constructor(private userRepository: UserRepository) { }
     
-    execute({ id }: DeleteUserInput): void {
+    execute({ id }: DeleteUserInput) {
         const user = this.userRepository.findById(id);
 
         if (!user) {

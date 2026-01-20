@@ -1,3 +1,4 @@
+import './database'
 import express from 'express';
 import usersRoutes from './routes/users.routes';
 import { logMiddleware } from './middlewares/log.middleware';

@@ -1,11 +1,11 @@
-import { InMemoryUserRepository } from '../repositories/in-memory-user.repository';
+import { GetUserUseCase } from './get-user.usecase';
+import { GetUsersUseCase } from './get-users.usecase';
 import { CreateUserUseCase } from './create-user.usecase';
 import { UpdateUserUseCase } from './update-user.usecase';
 import { DeleteUserUseCase } from './delete-user.usecase';
-import { GetUsersUseCase } from './get-users.usecase';
-import { GetUserUseCase } from './get-user.usecase';
+import { makeUserRepository } from '../repositories/user-repository.factory';
 
-const userRepository = new InMemoryUserRepository();
+const userRepository = makeUserRepository();
 
 export const getUserUseCase = new GetUserUseCase(userRepository);
 export const getUsersUseCase = new GetUsersUseCase(userRepository);
