@@ -1,6 +1,12 @@
 import { Request, Response } from 'express';
 import { UserResponse } from '../dtos/user-reponse.dto';
-import { createUserUseCase, deleteUserUseCase, getUsersUseCase, getUserUseCase, updateUserUseCase } from '../use-cases';
+import {
+  createUserUseCase,
+  deleteUserUseCase,
+  getUsersUseCase,
+  getUserUseCase,
+  updateUserUseCase,
+} from '../use-cases';
 
 export function getUsers(req: Request, res: Response) {
   const users: UserResponse[] = getUsersUseCase.execute();
@@ -15,10 +21,7 @@ export function getUsersById(req: Request, res: Response) {
   return res.json(user);
 }
 
-export function createUserController(
-  req: Request,
-  res: Response,
-) {
+export function createUserController(req: Request, res: Response) {
   const { name } = req.body;
 
   const user: UserResponse = createUserUseCase.execute({ name });
@@ -26,10 +29,7 @@ export function createUserController(
   return res.status(201).json(user);
 }
 
-export function deleteUserController(
-  req: Request,
-  res: Response,
-) {
+export function deleteUserController(req: Request, res: Response) {
   const id = req.params.id;
 
   deleteUserUseCase.execute({ id });
@@ -37,10 +37,7 @@ export function deleteUserController(
   return res.status(204).send();
 }
 
-export function updateUserByIdController(
-  req: Request,
-  res: Response,
-) {
+export function updateUserByIdController(req: Request, res: Response) {
   const id = req.params.id;
   const { name } = req.body;
 
@@ -49,10 +46,7 @@ export function updateUserByIdController(
   return res.json(updatedUser);
 }
 
-export function replaceUserController(
-  req: Request,
-  res: Response,
-) {
+export function replaceUserController(req: Request, res: Response) {
   const id = req.params.id;
   const { name } = req.body;
 

@@ -1,22 +1,22 @@
-import { UserResponse } from "../dtos/user-reponse.dto";
-import { errorMessages } from "../enums/error-messages.enum";
-import { AppError } from "../errors/app.error";
-import { UserRepository } from "../repositories/user.repository";
+import { UserResponse } from '../dtos/user-reponse.dto';
+import { errorMessages } from '../enums/error-messages.enum';
+import { AppError } from '../errors/app.error';
+import { UserRepository } from '../repositories/user.repository';
 
 interface GetUserInput {
-    id: string,
+  id: string;
 }
 
 export class GetUserUseCase {
-    constructor(private userRepository: UserRepository) { }
-    
-    execute({ id }: GetUserInput): UserResponse {
-        const user = this.userRepository.findById(id);
+  constructor(private userRepository: UserRepository) {}
 
-        if (!user) {
-            throw new AppError(errorMessages.USER_NOT_FOUND, 404);
-        }
+  execute({ id }: GetUserInput): UserResponse {
+    const user = this.userRepository.findById(id);
 
-        return user;
+    if (!user) {
+      throw new AppError(errorMessages.USER_NOT_FOUND, 404);
     }
+
+    return user;
+  }
 }
