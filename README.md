@@ -1,11 +1,10 @@
-![Node.js](https://img.shields.io/badge/Node.js-24+-339933?style=flat&logo=node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat&logo=typescript&logoColor=white)
-![Express](https://img.shields.io/badge/Express-5.x-000000?style=flat&logo=express&logoColor=white)
-![Zod](https://img.shields.io/badge/Zod-Validation-3E67B1?style=flat)
-![REST API](https://img.shields.io/badge/API-RESTful-blue?style=flat)
-![Vitest](https://img.shields.io/badge/Vitest-Testing-6E9F18?style=flat&logo=vitest&logoColor=white)
-![Supertest](https://img.shields.io/badge/Supertest-API%20Testing-333333?style=flat)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow?style=flat)
+![Node.js](https://img.shields.io/badge/node.js-20.x-339933?style=flat&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-5.x-3178C6?style=flat&logo=typescript&logoColor=white)
+![REST API](https://img.shields.io/badge/REST-API-blue?style=flat)
+![Swagger](https://img.shields.io/badge/swagger-openapi-85EA2D?style=flat&logo=swagger&logoColor=black)
+![Tests](https://img.shields.io/badge/tests-automated-success?style=flat)
+![SQLite](https://img.shields.io/badge/sqlite-database-003B57?style=flat&logo=sqlite&logoColor=white)
+![Last Commit](https://img.shields.io/github/last-commit/Mariano-JR/Node-Backend-Study?style=flat)
 
 # Node Backend Study
 
