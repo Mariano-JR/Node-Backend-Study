@@ -17,7 +17,7 @@ export function errorMiddleware(
         if (e.path.includes('name')) {
           return errorMessages.INVALID_NAME;
         }
-      }),
+      })[0],
     });
   }
 

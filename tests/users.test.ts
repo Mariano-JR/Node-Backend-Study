@@ -59,7 +59,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: ['Invalid name'],
+        message: 'Invalid name',
       });
     });
   });
@@ -124,7 +124,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: ['Invalid name'],
+        message: 'Invalid name',
       });
     });
   });
@@ -165,7 +165,7 @@ describe('Users API', () => {
       expect(response.body).toEqual({
         statusCode: 400,
         errors: 'Validation Error',
-        message: ['Invalid name'],
+        message: 'Invalid name',
       });
     });
   });

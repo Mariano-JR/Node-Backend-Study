@@ -33,6 +33,14 @@
  *                $ref: '#/components/schemas/User'
  *        400:
  *          description: Usuário não encontrado
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/ErrorResponse'
  *        404:
  *          description: Erro de validação
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/ErrorResponse'
  */

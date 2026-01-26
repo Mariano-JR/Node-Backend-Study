@@ -17,4 +17,8 @@
  *          description: Usuário deletado
  *        404:
  *          description: Usuário não encontrado
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/ErrorResponse'
  */
