@@ -9,6 +9,7 @@
 # Node Backend Study
 
 ## 📝 Descrição
+
 Projeto de API RESTful desenvolvida em Node.js e TypeScript, aplicando boas práticas de desenvolvimento e focada em qualidade de código.
 
 ## 🛠 Tecnologias Utilizadas
@@ -62,15 +63,21 @@ O servidor será iniciado em:
 ## 📚 Documentação da API (Swagger)
 
 A documentação interativa da API está disponível através do Swagger. Para acessá-la, siga os passos abaixo:
+
 ### 1. Inicie o servidor localmente com o comando:
+
 ```bash
   npm run dev
 ```
+
 ### 2. Acesse a documentação no navegador em:
+
 ```bash
   http://localhost:3000/api-docs
 ```
+
 ### 3. Explore os endpoints e teste as funcionalidades da API de forma interativa.
+
 ![Print Documentação Swagger](https://private-user-images.githubusercontent.com/104729357/539437196-3bcb49b8-8989-4237-b5a3-9fa2e4d43e2f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjkxMTc5NjUsIm5iZiI6MTc2OTExNzY2NSwicGF0aCI6Ii8xMDQ3MjkzNTcvNTM5NDM3MTk2LTNiY2I0OWI4LTg5ODktNDIzNy1iNWEzLTlmYTJlNGQ0M2UyZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEyMlQyMTM0MjVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mOTIzZmQzZDhlNDllYzFlOWUxMGFjOWViYjM5ZTliNmEwZTE0MDE0MDZkZmIzZGZlYzg3ZmQ5NWQ1NzBlYzg2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.NL-qmgcdUHJjfmE5jSSyi2c9uPp4mvnW1LtzErZgufw)
 
 ## 🧪 Testes Automatizados

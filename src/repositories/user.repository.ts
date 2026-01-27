@@ -5,5 +5,5 @@ export interface UserRepository {
   findById(id: string): User | undefined;
   create(user: User): User;
   delete(id: string): void;
-  update(id: string, data: Partial<User>): User | undefined;
+  update(id: string, data: { name: string }): User | undefined;
 }

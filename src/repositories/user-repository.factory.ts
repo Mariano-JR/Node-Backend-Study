@@ -1,11 +1,11 @@
 import { InMemoryUserRepository } from './in-memory-user.repository';
 import { SQLiteUserRepository } from './sqlite-user.repository';
-import { db } from '../database';
+import { UserRepository } from './user.repository';
 
-export function makeUserRepository() {
+export function makeUserRepository(): UserRepository {
   if (process.env.NODE_ENV === 'test') {
     return new InMemoryUserRepository();
   }
 
-  return new SQLiteUserRepository(db);
+  return new SQLiteUserRepository();
 }
