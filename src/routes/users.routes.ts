@@ -13,21 +13,21 @@ import { updateUserSchema } from '../dtos/update-user.dto';
 
 const usersRoutes = Router();
 
-usersRoutes.get('/users', getUsers);
-usersRoutes.get('/users/:id', getUsersById);
+usersRoutes.get('/v1/users', getUsers);
+usersRoutes.get('/v1/users/:id', getUsersById);
 
-usersRoutes.post('/users', validate(createUserSchema), createUserController);
+usersRoutes.post('/v1/users', validate(createUserSchema), createUserController);
 
-usersRoutes.delete('/users/:id', deleteUserController);
+usersRoutes.delete('/v1/users/:id', deleteUserController);
 
 usersRoutes.patch(
-  '/users/:id',
+  '/v1/users/:id',
   validate(updateUserSchema),
   updateUserByIdController
 );
 
 usersRoutes.put(
-  '/users/:id',
+  '/v1/users/:id',
   validate(updateUserSchema),
   replaceUserController
 );

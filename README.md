@@ -34,6 +34,7 @@ src/
 ├── enums/
 ├── types/
 ├── routes/
+├── docs/
 ├── app.ts
 └── server.ts
 
@@ -79,6 +80,10 @@ A documentação interativa da API está disponível através do Swagger. Para a
 ### 3. Explore os endpoints e teste as funcionalidades da API de forma interativa.
 
 ![Print Documentação Swagger](https://private-user-images.githubusercontent.com/104729357/539437196-3bcb49b8-8989-4237-b5a3-9fa2e4d43e2f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjkxMTc5NjUsIm5iZiI6MTc2OTExNzY2NSwicGF0aCI6Ii8xMDQ3MjkzNTcvNTM5NDM3MTk2LTNiY2I0OWI4LTg5ODktNDIzNy1iNWEzLTlmYTJlNGQ0M2UyZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMTIyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDEyMlQyMTM0MjVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mOTIzZmQzZDhlNDllYzFlOWUxMGFjOWViYjM5ZTliNmEwZTE0MDE0MDZkZmIzZGZlYzg3ZmQ5NWQ1NzBlYzg2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.NL-qmgcdUHJjfmE5jSSyi2c9uPp4mvnW1LtzErZgufw)
+
+### Versionamento
+
+Atualmente, a API está versionada em `/v1`, permitindo a evolução futura sem quebra de contratos.
 
 ## 🧪 Testes Automatizados
 

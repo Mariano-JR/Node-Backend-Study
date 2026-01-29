@@ -10,7 +10,7 @@ describe('Users API', () => {
 
   describe('GET /users', () => {
     it('should return a list of users', async () => {
-      const response = await request(app).get('/users');
+      const response = await request(app).get('/v1/users');
 
       expect(response.status).toBe(200);
       expect(Array.isArray(response.body)).toBe(true);
@@ -20,19 +20,19 @@ describe('Users API', () => {
   describe('GET /users/:id', () => {
     it('should return a user when id exists', async () => {
       const createResponse = await request(app)
-        .post('/users')
+        .post('/v1/users')
         .send({ name: 'John Doe' });
 
       const userId = createResponse.body.id;
 
-      const response = await request(app).get(`/users/${userId}`);
+      const response = await request(app).get(`/v1/users/${userId}`);
 
       expect(response.status).toBe(200);
       expect(response.body.id).toBe(userId);
     });
 
     it('should return 404 when user not exists', async () => {
-      const response = await request(app).get('/users/999999');
+      const response = await request(app).get('/v1/users/999999');
 
       expect(response.body).toEqual({
         statusCode: 404,
@@ -45,7 +45,7 @@ describe('Users API', () => {
   describe('POST /users', () => {
     it('should create a new user', async () => {
       const response = await request(app)
-        .post('/users')
+        .post('/v1/users')
         .send({ name: 'John Doe' });
 
       expect(response.status).toBe(201);
@@ -54,7 +54,9 @@ describe('Users API', () => {
     });
 
     it('should return 400 if name is invalid', async () => {
-      const response = await request(app).post('/users').send({ name: 'MJ' });
+      const response = await request(app)
+        .post('/v1/users')
+        .send({ name: 'MJ' });
 
       expect(response.body).toEqual({
         statusCode: 400,
@@ -67,18 +69,18 @@ describe('Users API', () => {
   describe('DELETE /users/:id', () => {
     it('should delete a a user when id exists', async () => {
       const createResponse = await request(app)
-        .post('/users')
+        .post('/v1/users')
         .send({ name: 'John Doe' });
 
       const userId = createResponse.body.id;
 
-      const response = await request(app).delete(`/users/${userId}`);
+      const response = await request(app).delete(`/v1/users/${userId}`);
 
       expect(response.status).toBe(204);
     });
 
     it('should return 404 when user not exist', async () => {
-      const response = await request(app).delete('/users/999999');
+      const response = await request(app).delete('/v1/users/999999');
 
       expect(response.body).toEqual({
         statusCode: 404,
@@ -91,13 +93,13 @@ describe('Users API', () => {
   describe('PATCH /users/:id', () => {
     it('should update user data when id exists', async () => {
       const createResponse = await request(app)
-        .post('/users')
+        .post('/v1/users')
         .send({ name: 'John Doe' });
 
       const userId = createResponse.body.id;
 
       const response = await request(app)
-        .patch(`/users/${userId}`)
+        .patch(`/v1/users/${userId}`)
         .send({ name: 'Mary Doe' });
 
       expect(response.status).toBe(200);
@@ -106,7 +108,7 @@ describe('Users API', () => {
 
     it('should return 404 when user not exists', async () => {
       const response = await request(app)
-        .patch('/users/999999')
+        .patch('/v1/users/999999')
         .send({ name: 'Mary Doe' });
 
       expect(response.body).toEqual({
@@ -118,7 +120,7 @@ describe('Users API', () => {
 
     it('should return 400 when validation error', async () => {
       const response = await request(app)
-        .patch('/users/999999')
+        .patch('/v1/users/999999')
         .send({ name: 'MJ' });
 
       expect(response.body).toEqual({
@@ -132,13 +134,13 @@ describe('Users API', () => {
   describe('PUT /users/:id', () => {
     it('should update user data when id exists', async () => {
       const createResponse = await request(app)
-        .post('/users')
+        .post('/v1/users')
         .send({ name: 'John Doe' });
 
       const userId = createResponse.body.id;
 
       const response = await request(app)
-        .put(`/users/${userId}`)
+        .put(`/v1/users/${userId}`)
         .send({ name: 'Mary Doe' });
 
       expect(response.status).toBe(200);
@@ -147,7 +149,7 @@ describe('Users API', () => {
 
     it('should return 404 when user not exists', async () => {
       const response = await request(app)
-        .put('/users/999999')
+        .put('/v1/users/999999')
         .send({ name: 'Mary Doe' });
 
       expect(response.body).toEqual({
@@ -159,7 +161,7 @@ describe('Users API', () => {
 
     it('should return 400 when validation error', async () => {
       const response = await request(app)
-        .put('/users/999999')
+        .put('/v1/users/999999')
         .send({ name: 'MJ' });
 
       expect(response.body).toEqual({
