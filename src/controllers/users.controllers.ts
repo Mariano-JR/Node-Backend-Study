@@ -8,49 +8,68 @@ import {
   updateUserUseCase,
 } from '../use-cases';
 
-export function getUsers(req: Request, res: Response) {
-  const users: UserResponse[] = getUsersUseCase.execute();
-  return res.json(users);
-}
+export class UserController {
+  getUsers(req: Request, res: Response) {
+    const users: UserResponse[] = getUsersUseCase.execute();
+    return res.json(users);
+  }
 
-export function getUsersById(req: Request, res: Response) {
-  const id = req.params.id;
+  getUsersById(req: Request, res: Response) {
+    const { id } = req.params;
 
-  const user: UserResponse = getUserUseCase.execute({ id });
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid id');
+    }
 
-  return res.json(user);
-}
+    const user: UserResponse = getUserUseCase.execute({ id });
 
-export function createUserController(req: Request, res: Response) {
-  const { name } = req.body;
+    return res.json(user);
+  }
 
-  const user: UserResponse = createUserUseCase.execute({ name });
+  createUser(req: Request, res: Response) {
+    const { name } = req.body;
+    const role = process.env.NODE_ENV === 'test' ? req.body.role : undefined;
 
-  return res.status(201).json(user);
-}
+    const user: UserResponse = createUserUseCase.execute({ name, role });
 
-export function deleteUserController(req: Request, res: Response) {
-  const id = req.params.id;
+    return res.status(201).json(user);
+  }
 
-  deleteUserUseCase.execute({ id });
+  deleteUser(req: Request, res: Response) {
+    const { id } = req.params;
 
-  return res.status(204).send();
-}
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid id');
+    }
 
-export function updateUserByIdController(req: Request, res: Response) {
-  const id = req.params.id;
-  const { name } = req.body;
+    deleteUserUseCase.execute({ id });
 
-  const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });
+    return res.status(204).send();
+  }
 
-  return res.json(updatedUser);
-}
+  updateUserById(req: Request, res: Response) {
+    const { name } = req.body;
+    const { id } = req.params;
 
-export function replaceUserController(req: Request, res: Response) {
-  const id = req.params.id;
-  const { name } = req.body;
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid id');
+    }
 
-  const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });
+    const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });
 
-  return res.json(updatedUser);
+    return res.json(updatedUser);
+  }
+
+  replaceUser(req: Request, res: Response) {
+    const { name } = req.body;
+    const { id } = req.params;
+
+    if (!id || Array.isArray(id)) {
+      throw new Error('Invalid id');
+    }
+
+    const updatedUser: UserResponse = updateUserUseCase.execute({ id, name });
+
+    return res.json(updatedUser);
+  }
 }

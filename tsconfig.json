@@ -8,6 +8,15 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types",
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "ts-node": {
+    "files": true
   }
 }

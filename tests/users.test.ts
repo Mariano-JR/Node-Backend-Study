@@ -5,9 +5,19 @@ describe('Users API', () => {
   let app: ReturnType<typeof createApp>;
   let authHeader: { Authorization: string };
 
-  beforeEach(() => {
+  beforeEach(async () => {
     app = createApp();
-    authHeader = { Authorization: 'Bearer test-token' };
+    
+    const loginResponse = await request(app)
+      .post('/v1/auth/login')
+      .send({
+        name: 'Admin User',
+        role: 'admin'
+      })
+    
+    const token = loginResponse.body.token
+
+    authHeader = { Authorization: `Bearer ${token}` };
   });
 
   describe('GET /users', () => {

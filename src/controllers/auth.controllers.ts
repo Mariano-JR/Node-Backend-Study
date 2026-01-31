@@ -5,9 +5,9 @@ export class AuthController {
   constructor(private loginUseCase: LoginUseCase) {}
 
   login(req: Request, res: Response) {
-    const { name } = req.body;
+    const { name, role } = req.body;
 
-    const result = this.loginUseCase.execute(name);
+    const result = this.loginUseCase.execute({ name, role });
 
     return res.status(200).json(result);
   }

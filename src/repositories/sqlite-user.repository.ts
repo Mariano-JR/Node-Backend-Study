@@ -15,9 +15,10 @@ export class SQLiteUserRepository implements UserRepository {
   }
 
   create(user: User): User {
-    db.prepare('INSERT INTO users (id, name) VALUES (?, ?)').run(
+    db.prepare('INSERT INTO users (id, name, role) VALUES (?, ?, ?)').run(
       user.id,
-      user.name
+      user.name,
+      user.role
     );
 
     return user;
