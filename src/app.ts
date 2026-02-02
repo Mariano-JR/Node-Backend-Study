@@ -13,12 +13,12 @@ export function createApp() {
 
   app.use(express.json());
   app.use(logMiddleware);
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
   app.use('/v1/auth', authRoutes);
   app.use(authMiddleware);
   app.use(usersRoutes);
   
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   app.use(errorMiddleware);
 
   return app;

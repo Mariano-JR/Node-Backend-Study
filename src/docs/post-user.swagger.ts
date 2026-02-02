@@ -13,10 +13,14 @@
  *             type: object
  *             required:
  *               - name
+ *               - role
  *             properties:
  *               name:
  *                 type: string
  *                 example: "John Doe"
+ *               role:
+ *                 type: string
+ *                 example: "user"
  *     responses:
  *       201:
  *         description: Usuário criado
