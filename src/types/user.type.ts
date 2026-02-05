@@ -1,5 +1,7 @@
+import { UserRole } from "../enums/user-role";
+
 export interface User {
   id: string;
   name: string;
-  role: 'admin' | 'user'
+  role: UserRole
 }

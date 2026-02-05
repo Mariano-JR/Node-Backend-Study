@@ -3,10 +3,11 @@ import { AppError } from '../errors/app.error';
 import { errorMessages } from '../enums/error-messages.enum';
 import { UserRepository } from '../repositories/user.repository';
 import { UserResponse } from '../dtos/user-reponse.dto';
+import { UserRole } from '../enums/user-role';
 
 interface CreateUserInput {
   name: string;
-  role: 'admin' | 'user'
+  role: UserRole;
 }
 
 export class CreateUserUseCase {

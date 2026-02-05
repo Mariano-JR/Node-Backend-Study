@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { AppError } from '../errors/app.error';
 import { jwtConfig } from '../config/jwt';
 import jwt from 'jsonwebtoken';
+import { UserRole } from '../enums/user-role';
 
 export function authMiddleware(
   req: Request,
@@ -19,7 +20,7 @@ export function authMiddleware(
   try {
     const decoded = jwt.verify(token, jwtConfig.secret) as {
       sub: string;
-      role: 'admin' | 'user'
+      role: UserRole
     };
 
     req.user = {
